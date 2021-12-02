@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}On-line Shop{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+	{% include 'shop/navbar.html' %}
+
+	<div class="container">
+		<div class="row" style="margin-top: 6%">
+			 <button class="btn btn-info pull-right">
+				{% with totail_items=cart|length %}
+					{% if cart|length > 0 %}
+						My Shopping Order:
+						<a href="{% url "cart:cart_detail" %}" style="color: #ffffff">
+							{{ totail_items }} item {{ totail_items|pluralize }}, Rs.. {{ cart.get_total_price }}
+						</a>
+						{% else %}
+						Your cart is empty.
+					{% endif %}
+				{% endwith %}
+			 </button>
+		</div>
+	</div>
+	{% block content %}
+	
+	
+	{% endblock %}
+
+	<footer class="container py-5 bg-dark" style="max-width: 1687px">
+      <div class="row">
+        <div class="col-12 col-md">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2" style="color: white"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+          <h5 class="d-block mb-3" style="color: white">©Teckart</h5>
+        </div>
+        <div class="col-6 col-md">
+          <h5 style="color: chartreuse">Features</h5>
+          <ul class="list-unstyled text-small">
+            <li><a  href="#">Cool stuff</a></li>
+            <li><a  href="#">Random feature</a></li>
+            <li><a  href="#">Team feature</a></li>
+            <li><a  href="#">Stuff for developers</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5 style="font; color: chartreuse ">Resources</h5>
+          <ul class="list-unstyled text-small">
+            <li><a href="#">Business</a></li>
+            <li><a href="#">Education</a></li>
+            <li><a href="#">Government</a></li>
+            <li><a href="#">Gaming</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5 style="color: chartreuse">About</h5>
+          <ul class="list-unstyled text-small">
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

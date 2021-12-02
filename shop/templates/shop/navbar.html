@@ -1,0 +1,33 @@
+{% load static %}
+<nav
+  class="navbar navbar-default rounded-pill"
+  role="navigation"
+  style="margin-bottom: 0px; background-color: #a6f6e6"
+>
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="">
+    <div class="navbar-header" style="display: flex">
+      <a
+        class="navbar-brand"
+        href="{% url 'shop:product_list' %}"
+        style="color: #030f0d"
+        ><strong>Teckart</strong></a
+      >
+
+      <ul
+        class="navbar-nav mr-auto"
+        style="display: flex; flex-direction: row; align-items: center"
+      >
+        <li class="m-3">
+          <a href="#" class="fa fa-facebook" style="float: right"></a>
+        </li>
+        <li class="m-3">
+          <a href="#" class="fa fa-twitter" style="align: right"></a>
+        </li>
+        <a href="#" class="fa fa-google m-3" style="align: right"></a>
+        <a href="#" class="fa fa-linkedin m-3" style="align: right"></a>
+        <a href="#" class="fa fa-instagram m-3" style="align: right"></a>
+      </ul>
+    </div>
+  </div>
+</nav>
